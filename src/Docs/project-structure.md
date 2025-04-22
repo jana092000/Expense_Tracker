@@ -29,7 +29,7 @@ backend/
 │   │   │               │   └── response/
 │   │   │               │       ├── UserResponse.java
 │   │   │               │       └── [other response DTOs]
-│   │   │               ├── entity/
+│   │   │               ├── model/
 │   │   │               │   ├── User.java
 │   │   │               │   ├── Role.java
 │   │   │               │   └── [other entity classes]

@@ -1,4 +1,9 @@
 package com.expense.expensetracker.service;
 
-public class UserService {
+import com.expense.expensetracker.dto.UserDto;
+import com.expense.expensetracker.model.User;
+
+public interface UserService {
+    User registerUser(UserDto userDto);
+
 }
