@@ -1,4 +1,10 @@
 package com.expense.expensetracker.service;
 
-public class ExpenseService {
+
+import com.expense.expensetracker.dto.ExpenseDto;
+import com.expense.expensetracker.model.Expense;
+
+public interface ExpenseService {
+    Expense postExpenses(ExpenseDto expenseDto);
+
 }
