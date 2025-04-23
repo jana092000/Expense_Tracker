@@ -4,10 +4,15 @@ import com.expense.expensetracker.dto.ExpenseDto;
 import com.expense.expensetracker.model.Expense;
 import com.expense.expensetracker.repository.ExpenseRepository;
 import com.expense.expensetracker.service.ExpenseService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -33,5 +38,21 @@ public class ExpenseServiceImpl implements ExpenseService {
         expense.setUpdatedAt(LocalDateTime.now());
 
         return expenseRepository.save(expense);
-}
+    }
+
+    public List<Expense> getAllExpensesSortedByDate() {
+        return expenseRepository.findAll()
+                .stream()
+                .sorted(Comparator.comparing(Expense::getExpenseDate).reversed())
+                .collect(Collectors.toList());
+    }
+
+    public Expense getExpenseById(Long id) {
+        Optional<Expense> expense = expenseRepository.findById(id);
+        if (expense.isPresent()) {
+            return expense.get();
+        }else {
+            throw new EntityNotFoundException("Expense not found for this id" + id);
+        }
+    }
 }
