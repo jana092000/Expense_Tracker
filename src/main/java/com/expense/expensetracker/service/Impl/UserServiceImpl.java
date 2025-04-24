@@ -28,6 +28,15 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
+    @Override
+    public User getUser(String Id)
+    {
+        User user = new User();
+        //get user logic
+
+        return user;
+    }
+
     public Optional<User> findByEmail(String email) {
         return userRepository.findByEmail(email);
     }

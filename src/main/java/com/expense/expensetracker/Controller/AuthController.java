@@ -22,6 +22,7 @@ public class AuthController {
             return ResponseEntity.ok(created);
         }
 
+
         @GetMapping("/ping")
         public ResponseEntity<String> ping() {
             return ResponseEntity.ok("Registration service is up.");

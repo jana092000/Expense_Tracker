@@ -5,5 +5,5 @@ import com.expense.expensetracker.model.User;
 
 public interface UserService {
     User registerUser(UserDto userDto);
-
+    User getUser(String Id);
 }
