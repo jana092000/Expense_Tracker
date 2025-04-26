@@ -10,4 +10,5 @@ public interface ExpenseService {
     Expense postExpenses(ExpenseDto expenseDto);
     List<Expense> getAllExpensesSortedByDate();
     Expense getExpenseById(Long id);
+    Expense updateExpense(Long id, ExpenseDto expenseDto);
 }

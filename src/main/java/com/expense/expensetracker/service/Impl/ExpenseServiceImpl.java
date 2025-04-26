@@ -40,6 +40,15 @@ public class ExpenseServiceImpl implements ExpenseService {
         return expenseRepository.save(expense);
     }
 
+    public Expense updateExpense(Long id, ExpenseDto expenseDto) {
+        Optional<Expense> expenseOptional = expenseRepository.findById(id);
+        if(expenseOptional.isPresent()) {
+            return saveOrUpdateExpense(expenseOptional.get(), expenseDto);
+        }else{
+            throw new EntityNotFoundException("Expense not found for this id" + id);
+        }
+    }
+
     public List<Expense> getAllExpensesSortedByDate() {
         return expenseRepository.findAll()
                 .stream()
