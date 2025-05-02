@@ -42,7 +42,7 @@ public class ExpenseController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    @PutMapping("/{id}")
     public ResponseEntity<?> updateExpense(@PathVariable Long id ,@RequestBody ExpenseDto expenseDto) {
         try{
             return ResponseEntity.ok(expenseService.updateExpense(id, expenseDto));
